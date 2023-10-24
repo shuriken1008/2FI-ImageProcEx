@@ -1,0 +1,1 @@
+void calcToneCurve(vector<int>& toneCurve){ for (inti = 0; i < toneCurve.size(); i++){ toneCurve[i] = 255 ‐i; } }
