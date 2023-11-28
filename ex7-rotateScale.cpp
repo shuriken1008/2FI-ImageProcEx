@@ -4,13 +4,6 @@
 
 using namespace std;
 
-cv::Point centerPos(cv::Mat image){
-	cv::Point center;			// 回転中心は
-	center.x = image.cols/2;	// 画像の中心
-	center.y = image.rows/2;
-    return center;
-}
-
 // 引数で示す角度だけ反時計回りに回転する関数
 void rotate(char* fileName, int angle, int rotateCenterX, int rotateCenterY, double scale){
 	cv::Mat image = cv::imread(fileName);
@@ -20,6 +13,9 @@ void rotate(char* fileName, int angle, int rotateCenterX, int rotateCenterY, dou
 	}
 
 	cv::Point center;			// 回転中心
+
+
+	// x,yが-1なら画像の中心にする改良
 	if(rotateCenterX < 0){
 		center.x = image.cols/2;	// 画像の中心
 	}else{
